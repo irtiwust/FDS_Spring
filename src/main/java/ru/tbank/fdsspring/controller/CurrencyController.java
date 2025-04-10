@@ -1,5 +1,6 @@
 package ru.tbank.fdsspring.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.tbank.fdsspring.Currency;
@@ -9,13 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/currencies")
+@RequiredArgsConstructor
 public class CurrencyController {
 
     private final CurrencyService currencyService;
-
-    public CurrencyController(CurrencyService currencyService) {
-        this.currencyService = currencyService;
-    }
 
     @GetMapping
     public ResponseEntity<List<Currency>> getCurrencies() {

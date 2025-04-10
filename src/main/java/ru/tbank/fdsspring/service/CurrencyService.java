@@ -1,5 +1,6 @@
 package ru.tbank.fdsspring.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.tbank.fdsspring.Currency;
 import ru.tbank.fdsspring.CurrencyRepository;
@@ -7,13 +8,10 @@ import ru.tbank.fdsspring.CurrencyRepository;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CurrencyService {
 
     private final CurrencyRepository currencyRepository;
-
-    public CurrencyService(CurrencyRepository currencyRepository) {
-        this.currencyRepository = currencyRepository;
-    }
 
     public List<Currency> getAllCurrencies() {
         return currencyRepository.findAll();
@@ -36,4 +34,3 @@ public class CurrencyService {
         currencyRepository.deleteById(id);
     }
 }
-//типо изменение
