@@ -18,4 +18,3 @@ public class Currency {
     private String description;
 
 }
-//чисто для изменений
