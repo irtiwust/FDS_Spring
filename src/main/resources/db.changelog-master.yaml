@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: resources/v1.0__create_currency_table.yaml
