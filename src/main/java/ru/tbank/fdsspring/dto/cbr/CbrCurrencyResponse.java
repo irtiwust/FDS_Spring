@@ -6,6 +6,7 @@ import java.util.Map;
 
 @Data
 public class CbrCurrencyResponse {
+
     @JsonProperty("Valute")
     private Map<String, CbrCurrency> valutes;
 }

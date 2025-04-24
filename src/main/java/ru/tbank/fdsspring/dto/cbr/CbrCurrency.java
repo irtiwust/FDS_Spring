@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class CbrCurrency {
+
     @JsonProperty("CharCode")
     private String code;
 

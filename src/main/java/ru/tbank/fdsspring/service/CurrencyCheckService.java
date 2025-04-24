@@ -32,6 +32,7 @@ public class CurrencyCheckService {
     }
 
     private void checkChange(Currency tracked, CbrCurrency cbrCurrency) {
+
         double changePercent = ((cbrCurrency.getPrevious() - cbrCurrency.getValue()) / cbrCurrency.getPrevious()) * 100;
         String[] ranges = tracked.getPriceChangeRange().split("/");
 
