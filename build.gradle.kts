@@ -22,6 +22,14 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.2")
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+
+    implementation("org.liquibase:liquibase-core")
+    implementation ("org.hibernate:hibernate-core")
+
+    implementation("jakarta.validation:jakarta.validation-api:3.1.0-M2")
+
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.4.2")
+    implementation("org.springframework.data:spring-data-jpa:3.4.2")
 }
 
 tasks.test {

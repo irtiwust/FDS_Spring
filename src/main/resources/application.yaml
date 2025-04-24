@@ -1,0 +1,17 @@
+server:
+  port: 8069
+
+spring:
+  application:
+    name: FDS-Spring
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/currency_tracker
+    username: user
+    password: password
+    jpa:
+      hibernate:
+        ddl-auto: validate
+      show-sql: true
+    liquibase:
+      change-log: classpath:/db/changelog/db.changelog-master.yaml

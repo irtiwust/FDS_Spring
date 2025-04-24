@@ -1,22 +1,23 @@
-version: '3.0'
+version: '3.8'
 
 services:
   app:
     build: .
-    container_name: user-service
-    networks:
-      - app_network
+    container_name: currency-app
     ports:
-      - "8069:8069"
+      - "8080:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/currency_tracker
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_LIQUIBASE_ENABLED: "true"
 
   db:
     image: postgres:15
-    container_name: user-db
-    networks:
-      - app_network
-    restart: always
+    container_name: currency-db
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
@@ -25,6 +26,11 @@ services:
       - "5432:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d currency_tracker"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   pg_data:
